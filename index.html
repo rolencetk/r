@@ -1057,32 +1057,6 @@
     `;
     document.head.appendChild(style);
 
-   const fileInput = document.querySelector('#files');
-
-const file = fileInput.files[0];
-const reader = new FileReader();
-
-reader.onload = function () {
-  const base64File = reader.result.split(',')[1];
-
-  const data = {
-    fullName: "Test",
-    files: [{
-      name: file.name,
-      type: file.type,
-      content: base64File
-    }]
-  };
-
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  });
-};
-
-reader.readAsDataURL(file);
-
 
     // Default configuration
     const defaultConfig = {
